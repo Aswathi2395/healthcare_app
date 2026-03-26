@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Healthcare Support App</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">HealthCare</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#formSection">Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<div class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+    <div>
+        <h1 class="fw-bold">Healthcare Support</h1>
+        <p>Get quick help and connect with healthcare services easily.</p>
+        <a href="#formSection" class="btn btn-success mt-3">Request Help</a>
+    </div>
+</div>
+
+<!-- Support Section -->
+<div id="formSection" class="support-section d-flex align-items-center">
+    <div class="container py-5">
+
+        <h2 class="text-center text-white mb-4">Patient Support Form</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <form onsubmit="submitForm(event)" class="card p-4 shadow">
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Describe Your Issue</label>
+                        <textarea class="form-control" rows="3" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        Submit Request
+                    </button>
+
+                </form>
+
+                <div id="formMsg" class="mt-3"></div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="contact-section d-flex align-items-center">
+    <div class="container py-5">
+
+        <h2 class="text-center text-white mb-4">Contact Us</h2>
+
+        <div class="row">
+
+            <!-- Info -->
+            <div class="col-md-6 text-white">
+                <h5>📍 Address</h5>
+                <p>123 Healthcare Street, Chennai, India</p>
+
+                <h5>📞 Phone</h5>
+                <p>+91 98765 43210</p>
+
+                <h5>📧 Email</h5>
+                <p>abc@healthcare.com</p>
+            </div>
+
+            <!-- Form -->
+            <div class="col-md-6">
+                <form onsubmit="contactForm(event)" class="card p-4 shadow">
+
+                    <div class="mb-3">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Your Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" rows="3" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        Send Message
+                    </button>
+
+                </form>
+
+                <div id="contactMsg" class="mt-3"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Chatbot Button -->
+<button onclick="openChat()" id="chatBtn"
+class="btn btn-success rounded-circle d-flex align-items-center justify-content-center"
+style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 999;">
+    <i class="fa-solid fa-house-chimney-medical"></i>
+</button>
+
+<!-- Chatbot Box -->
+<div id="chatBox" class="card shadow"
+style="position: fixed; bottom: 90px; right: 20px; width: 320px; display: none; border-radius: 15px; overflow: hidden;">
+
+    <div class="card-header text-white d-flex justify-content-between align-items-center" style="background:#0d6efd;">
+        <span>Healthcare Chatbot</span>
+        <span style="cursor:pointer;" onclick="closeChat()">✖</span>
+    </div>
+
+    <div class="card-body chat-bg" id="chatContent">
+        <p class="bot-msg"><b>Bot:</b> Hello! How can I help you?</p>
+    </div>
+
+    <div class="card-footer">
+        <input type="text" id="userInput" class="form-control" placeholder="Type message...">
+        <button class="btn btn-success mt-2 w-100" onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+</body>
+</html>
